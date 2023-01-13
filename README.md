@@ -17,7 +17,7 @@
 
 ### Requirements
 
-- Node.js 14+ and npm
+- Node.js 16.14.0+ and npm
 
 ### Getting started
 
