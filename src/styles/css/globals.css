@@ -1,0 +1,36 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-background: #0d1117;
+  --color-card: 22, 27, 34;
+  --color-dark-jungle-green: '#0c1120',
+  --color-dark-gunmetal: #1c2129;
+  --color-border: #2a2c30;
+  --color-text-secondary: #a3b3bc;
+  --color-text-grey: #888;
+  --color-skeleton-base: #272e37;
+  --color-skeleton-highlight: #404853;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
