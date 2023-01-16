@@ -58,8 +58,8 @@ https://github.com/HackerNews/API
 Run the following command on your local environment:
 
 ```shell
-git clone https://github.com/MingFEW/reactjs18-starter-with-vite my-project-name
-cd my-project-name
+git clone https://github.com/MingFEW/HackerNews.git
+cd HackerNews
 yarn install
 ```
 
