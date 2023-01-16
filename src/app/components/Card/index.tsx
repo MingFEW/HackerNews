@@ -27,7 +27,7 @@ const commentStyles = css`
   }
 `
 
-export const StoryCard: React.FC<StoryCardProps> = memo(props => {
+const StoryCard: React.FC<StoryCardProps> = memo(props => {
   const { loading, data } = props
   const { title, by, type, url, score, kids, time } = data || {}
   const formatTime = moment((time as number) * 1000).fromNow()
@@ -67,3 +67,5 @@ export const StoryCard: React.FC<StoryCardProps> = memo(props => {
     </div>
   )
 })
+
+export default StoryCard
