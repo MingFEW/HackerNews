@@ -57,22 +57,22 @@ export const StoryCard: React.FC<StoryCardProps> = memo(props => {
             </div>
 
             {/* Title */}
-            <div tw="flex mb-6">
+            <div tw="sm:flex mb-6">
               <div
                 css={[
-                  tw`flex items-center justify-center rounded-2xl h-8 px-3 mr-3`,
+                  tw`w-fit flex items-center justify-center rounded-2xl h-5 sm:h-8 px-3 mb-1 sm:mr-3 sm:mb-0`,
                   tw`bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500`
                 ]}
               >
-                <div tw="text-white text-sm font-bold mb-[2px]">{capitalizeFirstLetter(type as string)}</div>
+                <div tw="text-white text-xs sm:text-sm font-bold mb-[2px]">{capitalizeFirstLetter(type as string)}</div>
               </div>
               <a
                 href={url}
                 target="_blank"
                 rel="noreferrer"
-                tw="text-white text-xl font-bold cursor-pointer hover:opacity-80 hover:no-underline"
+                tw="text-white text-base sm:text-xl font-bold cursor-pointer hover:opacity-80 hover:no-underline"
               >
-                {title}
+                {capitalizeFirstLetter(title as string)}
               </a>
             </div>
 
