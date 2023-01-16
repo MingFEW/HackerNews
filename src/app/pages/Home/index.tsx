@@ -7,7 +7,7 @@ import 'twin.macro'
 import { PAGE_SIZE, useFetchStories } from '@/state/stories/hooks'
 
 // Components
-import StoryCard from '@/components/Card'
+import StoryCard from '@/components/StoryCard'
 import { StoryTypes } from '@/state/stories/types'
 
 export const HomePage: React.FC = () => {
