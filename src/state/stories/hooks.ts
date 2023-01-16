@@ -15,22 +15,58 @@ export const useSelectStories = (): StoryTypes[] => {
   return useAppSelector(state => state.stories.stories)
 }
 
+export const useSelectStorySelected = (): StoryTypes | null => {
+  return useAppSelector(state => state.stories.storySelected)
+}
+
+export const useStorySelected = (): {
+  storySelected: StoryTypes | null
+  setStorySelected: (story: StoryTypes | null) => void
+} => {
+  const dispatch = useAppDispatch()
+  const storySelected = useSelectStorySelected()
+
+  const setStorySelected = useCallback((story: StoryTypes | null): void => {
+    dispatch(storiesActions.setStorySelected(story))
+  }, [])
+
+  return {
+    storySelected,
+    setStorySelected
+  }
+}
+
 export const useFetchStories = (): {
   isLoading: boolean
-  data: StoryTypes[]
   hasMore: boolean
+  data: StoryTypes[]
+  error: unknown
   onLoadmore: () => Promise<void>
 } => {
+  /**
+   * hooks from redux
+   */
   const dispatch = useAppDispatch()
   const stories = useSelectStories()
 
-  const [fetchTopStories, { data: topStoriesData, isFetching: isFetchingTopStories }] = useLazyFetchTopStoriesQuery()
+  /**
+   * hooks get data from api
+   */
+  const [fetchTopStories, { data: topStoriesData, isFetching: isFetchingTopStories, error: fetchTopStoriesError }] =
+    useLazyFetchTopStoriesQuery()
   const [fetchStory] = useLazyFetchStoryQuery()
 
+  /**
+   * state management
+   */
   const [storyIdList, setStoryIdList] = useState<number[]>([])
   const [page, setPage] = useState<number>(0)
   const [isFetchingStories, setIsFetchingStories] = useState<boolean>(true)
+  const [fetchStoriesError, setFetchStoriesError] = useState<unknown>(null)
 
+  /**
+   * hooks handle the check, calculate...
+   */
   const hasMore = useMemo((): boolean => page * PAGE_SIZE < storyIdList?.length, [page, storyIdList])
 
   useEffect((): void => {
@@ -39,7 +75,7 @@ export const useFetchStories = (): {
 
   useEffect((): void => {
     if (topStoriesData?.length) {
-      // take only 100 id
+      // take only 100 ids
       setStoryIdList(topStoriesData.slice(0, 100))
     }
   }, [topStoriesData])
@@ -49,14 +85,14 @@ export const useFetchStories = (): {
    */
   useEffect((): void => {
     if (storyIdList?.length) {
-      handleFetchStory().then(() => setIsFetchingStories(false))
+      handleFetchStories().then(() => setIsFetchingStories(false))
     }
   }, [storyIdList])
 
   /**
-   * handle logic related to getting story data
+   * handle logic related to getting stories data
    */
-  const handleFetchStory = useCallback(async (): Promise<void> => {
+  const handleFetchStories = useCallback(async (): Promise<void> => {
     try {
       const preparePromises = storyIdList
         .slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE)
@@ -68,7 +104,7 @@ export const useFetchStories = (): {
       dispatch(storiesActions.setStories(transformData as StoryTypes[]))
       setPage(page + 1)
     } catch (error) {
-      console.log('error', error)
+      setFetchStoriesError(error)
     }
   }, [page, storyIdList])
 
@@ -76,13 +112,14 @@ export const useFetchStories = (): {
    * handle logic loadmore
    */
   const onLoadmore = useCallback(async (): Promise<void> => {
-    await handleFetchStory()
-  }, [handleFetchStory])
+    await handleFetchStories()
+  }, [handleFetchStories])
 
   return {
     isLoading: isFetchingStories || isFetchingTopStories,
-    data: stories,
     hasMore,
+    data: stories,
+    error: fetchStoriesError || fetchTopStoriesError,
     onLoadmore
   }
 }

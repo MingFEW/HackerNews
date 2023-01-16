@@ -18,10 +18,10 @@ const store = configureAppStore()
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <HelmetProvider>
-      <React.StrictMode>
-        <GlobalStyles />
-        <App />
-      </React.StrictMode>
+      {/* <React.StrictMode> */}
+      <GlobalStyles />
+      <App />
+      {/* </React.StrictMode> */}
     </HelmetProvider>
   </Provider>
 )

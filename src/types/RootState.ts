@@ -1,3 +1,4 @@
+import { CommentsState } from '@/state/comments/types'
 import { StoriesState } from '@/state/stories/types'
 
 /* 
@@ -8,4 +9,5 @@ import { StoriesState } from '@/state/stories/types'
 */
 export interface RootState {
   stories: StoriesState
+  comments: CommentsState
 }

@@ -31,7 +31,8 @@
     "react/no-unknown-property": ["error", { "ignore": ["tw", "css"] }],
     "import/extensions": 0,
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": 0
+    "@typescript-eslint/no-shadow": 0,
+    "jsx-a11y/click-events-have-key-events": 0
     // "sort-imports": [
     //   "error",
     //   {

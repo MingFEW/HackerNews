@@ -4,7 +4,8 @@ import { useInjectReducer } from '@/utils/redux-injectors'
 import { StoriesState, StoryTypes } from './types'
 
 export const initialState: StoriesState = {
-  stories: []
+  stories: [],
+  storySelected: null
 }
 
 const slice = createSlice({
@@ -13,6 +14,9 @@ const slice = createSlice({
   reducers: {
     setStories(state: StoriesState, action: PayloadAction<StoryTypes[]>) {
       state.stories = [...state.stories, ...action.payload]
+    },
+    setStorySelected(state: StoriesState, action: PayloadAction<StoryTypes | null>) {
+      state.storySelected = action.payload
     }
   }
 })
