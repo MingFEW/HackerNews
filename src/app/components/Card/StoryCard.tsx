@@ -44,8 +44,8 @@ export const StoryCard: React.FC<StoryCardProps> = memo(props => {
           </SkeletonTheme>
         ) : (
           <>
-            {/* Author & date */}
             <div tw="flex items-center justify-between">
+              {/* Author & date */}
               <div tw="text-xs text-textGrey">
                 Posted by {by} • {formatTime}
               </div>
