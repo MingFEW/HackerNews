@@ -1,4 +1,38 @@
-# Starter for React JS 18+ with Vite, Twin.macro v3+ and TypeScript
+# Hacker Top Stories and Comments 
+
+**LIVE DEMO****: https://melodic-sable-85ff60.netlify.app/
+
+### Requirements for UI
+
+1. Display a list of hacker news top stories(100news).
+2. Before data finishes fetching, please show a loader.
+3. Each news post has a link to navigate to the actual page as a new tab.
+4. Infinite scrolling or Pagination
+5. Animations
+6. Unit testing, snapshot testing
+
+### Requirements about Tech
+
+1. Use React. If you would like, you can use any meta framework of your choice
+(eg. Next.js).
+2. Use Typescript.
+3. DO NOT use a UI library (eg. material design, bootstrap). You can use a CSS
+framework if you would like(eg. styled-component, css-in-module, tailwindcss,
+etc).
+
+### API Spec
+
+https://github.com/HackerNews/API
+
+#### 01 - HackerNews List 2
+
+**Example**
+
+- Top stories api https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
+- fetch individual story https://hacker-news.firebaseio.com/v0/item/{itemId}.json?
+- print=pretty https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty
+
+## TECH STACK : Starter for React JS 18+ with Vite, Twin.macro v3+ and TypeScript
 
 ### Features
 
@@ -24,8 +58,8 @@
 Run the following command on your local environment:
 
 ```shell
-git clone https://github.com/MingFEW/reactjs18-starter-with-vite my-project-name
-cd my-project-name
+git clone https://github.com/MingFEW/HackerNews.git
+cd HackerNews
 yarn install
 ```
 

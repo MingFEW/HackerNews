@@ -39,8 +39,8 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Home Page</title>
-        <meta name="description" content="This is homepage" />
+        <title>Hacker Top Stories | Home Page</title>
+        <meta name="description" content="Hacker Top Stories | Home Page" />
       </Helmet>
       <InfiniteScroll
         dataLength={data?.length}

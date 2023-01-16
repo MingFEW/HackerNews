@@ -22,6 +22,10 @@ body {
   --color-skeleton-highlight: #404853;
 }
 
+body {
+  background-color: var(--color-background);
+}
+
 a {
   text-decoration: none;
 }

@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import tw from 'twin.macro'
 
@@ -17,7 +17,7 @@ interface StoryCardProps {
   onCommentClick?: (story: StoryTypes) => void
 }
 
-export const StoryCard: React.FC<StoryCardProps> = memo(props => {
+export const StoryCard: React.FC<StoryCardProps> = props => {
   const { loading, data, onCommentClick } = props
   const { title, by, type, url, score, kids, time } = (data as StoryTypes) || {}
 
@@ -49,4 +49,4 @@ export const StoryCard: React.FC<StoryCardProps> = memo(props => {
       </div>
     </div>
   )
-})
+}
