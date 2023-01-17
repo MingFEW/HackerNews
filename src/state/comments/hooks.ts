@@ -11,6 +11,18 @@ export const useSelectComments = (): CommentTypes[] => {
   return useAppSelector(state => state.comments.comments)
 }
 
+export const useResetComments = (): {
+  resetComments: () => void
+} => {
+  const dispatch = useAppDispatch()
+
+  const resetComments = useCallback(() => {
+    dispatch(commentsActions.setComments([]))
+  }, [])
+
+  return { resetComments }
+}
+
 const PAGE_SIZE = 2
 
 export const useFetchComments = (): {

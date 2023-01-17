@@ -13,6 +13,7 @@ import { StoryTypes } from '@/state/stories/types'
 // Components
 import { StoryCard } from '@/components/StoryCard'
 import { StoryModal } from '@/components/StoryModal'
+import { useResetComments } from '@/state/comments/hooks'
 
 export const HomePage: React.FC = () => {
   /**
@@ -20,12 +21,14 @@ export const HomePage: React.FC = () => {
    */
   const { isLoading, hasMore, data, onLoadmore } = useFetchStories()
   const { storySelected, setStorySelected } = useStorySelected()
+  const { resetComments } = useResetComments()
 
   /**
    * open or close story modal (reset story selected)
    */
   const onCloseStoryModal = useCallback((): void => {
     setStorySelected(null)
+    resetComments()
   }, [storySelected])
 
   /**
