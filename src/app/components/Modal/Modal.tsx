@@ -4,7 +4,7 @@ import ReactModal, { Props as ReactModalProps } from 'react-modal'
 import ModalHeader from './Header'
 import ModalContent from './Content'
 
-ReactModal.setAppElement('#root')
+if (process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#root')
 
 /**
  * styles

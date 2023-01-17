@@ -1,7 +1,7 @@
 import { CommentTypes } from '@/state/comments/types'
 
 export const getCommentPath = (comment: CommentTypes, parentComment: CommentTypes): string | undefined => {
-  if (parentComment) {
+  if (parentComment?.id) {
     if (parentComment.path && parentComment.path === `${parentComment.parent}`) {
       return `${parentComment.path}/${parentComment.id}`
     }
