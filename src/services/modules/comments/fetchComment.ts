@@ -3,5 +3,5 @@ import { CommentTypes } from '@/state/comments/types'
 
 export default (build: EndpointBuilder<any, any, any>) =>
   build.query<CommentTypes, number>({
-    query: commentId => `/item/${commentId}.json?print=pretty`
+    query: commentId => `/item/${commentId}.json`
   })
