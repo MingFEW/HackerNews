@@ -4,16 +4,17 @@ import { Helmet } from 'react-helmet-async'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import 'twin.macro'
 
-// State
-import { PAGE_SIZE, useFetchStories, useStorySelected } from '@/state/stories/hooks'
+// Constants
+import { HomePageMeta } from '@/constants/AppConfig'
 
-// Types
+// States
+import { PAGE_SIZE, useFetchStories, useStorySelected } from '@/state/stories/hooks'
+import { useResetComments } from '@/state/comments/hooks'
 import { StoryTypes } from '@/state/stories/types'
 
 // Components
 import { StoryCard } from '@/components/StoryCard'
 import { StoryModal } from '@/components/StoryModal'
-import { useResetComments } from '@/state/comments/hooks'
 
 export const HomePage: React.FC = () => {
   /**
@@ -42,8 +43,8 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Hacker Top Stories | Home Page</title>
-        <meta name="description" content="Hacker Top Stories | Home Page" />
+        <title>{HomePageMeta.title}</title>
+        <meta name="description" content={HomePageMeta.description} />
       </Helmet>
       <InfiniteScroll
         dataLength={data?.length}

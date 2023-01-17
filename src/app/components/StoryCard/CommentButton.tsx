@@ -1,6 +1,8 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { BiComment } from 'react-icons/bi'
 import tw, { css } from 'twin.macro'
+import { messages } from './messages'
 
 /**
  * Styles
@@ -20,6 +22,7 @@ interface CommentButtonProps {
 }
 
 export const CommentButton: React.FC<CommentButtonProps> = props => {
+  const { t } = useTranslation()
   const { onClick, count, ...rest } = props
   return (
     <div
@@ -34,7 +37,7 @@ export const CommentButton: React.FC<CommentButtonProps> = props => {
         className="comment_count"
         css={[tw`text-xs font-semibold sm:text-sm text-textSecondary`, tw`sm:mb-[3px] transition-all`]}
       >
-        {count} Comments
+        {t(messages.totalComments(), { total: count })}
       </div>
     </div>
   )

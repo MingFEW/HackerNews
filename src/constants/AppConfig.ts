@@ -4,3 +4,8 @@ export const AppConfig = {
   description: 'HackerNews List',
   locale: 'en'
 }
+
+export const HomePageMeta = {
+  title: 'Hacker Top Stories | Home Page',
+  description: 'Hacker Top Stories | Home Page'
+}

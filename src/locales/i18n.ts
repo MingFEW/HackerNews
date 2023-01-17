@@ -9,7 +9,6 @@ export const translationsJson = {
   en: {
     translation: en
   }
-  //  More translation...
 }
 
 // Create the 'translations' object to provide full intellisense support for the static json files.

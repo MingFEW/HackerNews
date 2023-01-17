@@ -9,8 +9,6 @@ import { useLazyFetchStoryQuery, useLazyFetchTopStoriesQuery } from '@/services/
 import { StoryTypes } from './types'
 import { storiesActions } from './reducer'
 
-export const PAGE_SIZE = 10
-
 export const useSelectStories = (): StoryTypes[] => {
   return useAppSelector(state => state.stories.stories)
 }
@@ -36,6 +34,7 @@ export const useStorySelected = (): {
   }
 }
 
+export const PAGE_SIZE = 10
 export const useFetchStories = (): {
   isLoading: boolean
   hasMore: boolean

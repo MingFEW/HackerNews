@@ -7,7 +7,7 @@ export const getCommentPath = (comment: CommentTypes, parentComment: CommentType
     }
 
     if (parentComment.path) {
-      return `${parentComment.path}/${comment?.id}`
+      return `${parentComment.path}/${comment?.parent}`
     }
 
     return `${parentComment.id}`

@@ -1,12 +1,15 @@
 import React from 'react'
 import tw, { css } from 'twin.macro'
+import { useTranslation } from 'react-i18next'
 
 import { CommentTypes } from '@/state/comments/types'
 import { formatTime } from '@/utils/formatTime'
 
+import { messages } from './messages'
+
 interface CommentProps {
   data: CommentTypes
-  onLoadMoreReplies: (replyIds: number[], parentComment: CommentTypes) => Promise<void>
+  onLoadMoreReplies?: (replyIds: number[], parentComment: CommentTypes) => Promise<void>
 }
 
 /**
@@ -22,6 +25,8 @@ const depthStyles = css`
 `
 
 export const Comment: React.FC<CommentProps> = props => {
+  const { t } = useTranslation()
+
   const { data, onLoadMoreReplies } = props
   const { by, path, text, deleted, time, kids, childLoaded, children } = data
   const totalMoreReplies = kids?.length - childLoaded
@@ -46,7 +51,6 @@ export const Comment: React.FC<CommentProps> = props => {
           </div>
           <div
             tw="text-textSecondary text-sm break-all"
-            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: deleted ? 'Reply deleted' : text }}
           />
         </div>
@@ -73,9 +77,11 @@ export const Comment: React.FC<CommentProps> = props => {
                   tw`flex items-center justify-center w-[105px] cursor-pointer bg-textSecondary rounded-xl`,
                   tw`text-xs font-semibold text-card`
                 ]}
-                onClick={() => onLoadMoreReplies(kids, data)}
+                onClick={() => {
+                  if (onLoadMoreReplies) onLoadMoreReplies(kids, data)
+                }}
               >
-                {totalMoreReplies} more replies
+                {t(messages.totalMoreReplies(), { total: totalMoreReplies })}
               </div>
             </div>
           ) : null}
@@ -83,7 +89,7 @@ export const Comment: React.FC<CommentProps> = props => {
       </div>
 
       {children.map(reply => (
-        <Comment key={reply.id} data={reply} onLoadMoreReplies={() => onLoadMoreReplies(reply.kids, reply)} />
+        <Comment key={reply.id} data={reply} onLoadMoreReplies={onLoadMoreReplies} />
       ))}
     </div>
   )

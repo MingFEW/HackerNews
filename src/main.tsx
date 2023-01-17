@@ -1,7 +1,6 @@
 import 'react-app-polyfill/ie11'
 import 'react-app-polyfill/stable'
 
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { GlobalStyles } from 'twin.macro'
 import { HelmetProvider } from 'react-helmet-async'
@@ -9,6 +8,8 @@ import { Provider } from 'react-redux'
 import { App } from './app'
 
 import { configureAppStore } from './store/configureStore'
+
+import './locales/i18n'
 
 import '@/styles/css/globals.css'
 import 'react-loading-skeleton/dist/skeleton.css'

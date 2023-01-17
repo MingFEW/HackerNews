@@ -1,5 +1,6 @@
-import React, { memo, useCallback, useMemo } from 'react'
+import React, { memo, useCallback } from 'react'
 import Skeleton from 'react-loading-skeleton'
+import { useTranslation } from 'react-i18next'
 import 'twin.macro'
 
 // States
@@ -15,6 +16,8 @@ import { StoryMetadata } from '../StoryCard/StoryMetadata'
 import { StoryTitle } from '../StoryCard/StoryTitle'
 import { LoadMoreButton } from './LoadMoreButton'
 
+import { messages } from './messages'
+
 interface StoryModalProps {
   storySelected: StoryTypes
   onClose: () => void
@@ -22,6 +25,7 @@ interface StoryModalProps {
 
 export const StoryModal: React.FC<StoryModalProps> = memo(
   props => {
+    const { t } = useTranslation()
     /**
      * data from props
      */
@@ -52,11 +56,11 @@ export const StoryModal: React.FC<StoryModalProps> = memo(
       },
       [flatCommentData]
     )
-    const nestedCommentData = useMemo(getChildrenComments, [getChildrenComments])
+    const nestedCommentData = getChildrenComments()
 
     return (
       <Modal isOpen>
-        <Modal.Header title="Story" onClose={onClose} />
+        <Modal.Header title={t(messages.storyModalTitle())} onClose={onClose} />
         <Modal.Content>
           <div>
             {/* story info */}
@@ -70,7 +74,7 @@ export const StoryModal: React.FC<StoryModalProps> = memo(
             {/* count total comments */}
             <div tw="border-y border-slate-700 my-8 py-3 w-full">
               <div tw="text-xs sm:text-sm sm:mb-[3px] text-textSecondary font-semibold transition-all">
-                {kids?.length} Comments
+                {t(messages.totalCommments(), { total: kids?.length })}
               </div>
             </div>
 

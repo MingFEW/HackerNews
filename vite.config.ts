@@ -29,9 +29,11 @@ export default defineConfig({
       '@/constants': path.resolve(__dirname, './src/constants'),
       '@/services': path.resolve(__dirname, './src/services'),
       '@/components': path.resolve(__dirname, './src/app/components'),
+      '@/pages': path.resolve(__dirname, './src/app/pages'),
       '@/utils': path.resolve(__dirname, './src/utils'),
       '@/state': path.resolve(__dirname, './src/state'),
       '@/store': path.resolve(__dirname, './src/store'),
+      '@/locales': path.resolve(__dirname, './src/locales'),
       '@/public/*': path.resolve(__dirname, './public/*')
     }
   }

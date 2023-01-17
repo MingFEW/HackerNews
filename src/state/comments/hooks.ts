@@ -23,8 +23,7 @@ export const useResetComments = (): {
   return { resetComments }
 }
 
-const PAGE_SIZE = 2
-
+const PAGE_SIZE = 3
 export const useFetchComments = (): {
   isLoading: boolean
   hasMore: boolean

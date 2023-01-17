@@ -1,3 +1,7 @@
 {
-  "Commments": "Commments"
+  "totalCommments": "{{total}} Commments",
+  "totalMoreReplies": "{{total}} more replies",
+  "story": "Story",
+  "loadMore": "Load more",
+  "postedBy": "Posted by {{author}} • {{time}}"
 }
