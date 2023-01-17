@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { CommentTypes } from './types'
 import { commentsActions } from './reducer'
 import { useStorySelected } from '../stories/hooks'
+import { getCommentPath } from '@/utils/getCommentPath'
 
 export const useSelectComments = (): CommentTypes[] => {
   return useAppSelector(state => state.comments.comments)
@@ -62,33 +63,18 @@ export const useFetchComments = (): {
   const handleFetchComments = useCallback(
     async (commentIds: number[], parentComment?: CommentTypes): Promise<void> => {
       try {
-        // console.log('storySelected', storySelected)
-        // console.log('parentComment', parentComment)
         const cloneComments: CommentTypes[] = [...comments]
 
         // Handle how many comments can be loaded at a time
         const skip = parentComment ? parentComment.childLoaded : page * PAGE_SIZE
         const limit = skip + PAGE_SIZE
 
-        // console.log({
-        //   skip,
-        //   limit
-        // })
-
         const preparePromises = commentIds.slice(skip, limit).map((id: number) => fetchComment(id))
         const data = await Promise.all(preparePromises)
 
         const transformData = data.map(item => ({
           ...item.data,
-          path: parentComment
-            ? `${
-                parentComment.path && parentComment.path === `${parentComment.parent}`
-                  ? `${parentComment.path}/${parentComment.id}`
-                  : parentComment.path
-                  ? `${parentComment.path}/${item.data?.id}`
-                  : parentComment.id
-              }`
-            : undefined,
+          path: getCommentPath(item.data as CommentTypes, parentComment as CommentTypes),
           childLoaded: 0
         }))
 

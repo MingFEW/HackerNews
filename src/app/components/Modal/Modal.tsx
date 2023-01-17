@@ -28,7 +28,8 @@ const baseStyles = {
   },
   overlay: {
     backgroundColor: 'rgba(var(--color-card), 0.6)',
-    backdropFilter: 'blur(22px)'
+    backdropFilter: 'blur(22px)',
+    zIndex: 999
   }
 }
 
