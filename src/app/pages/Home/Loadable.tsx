@@ -2,18 +2,22 @@
  * Asynchronously loads the component for HomePage
  */
 import * as React from 'react'
-import 'twin.macro'
+import tw, { styled } from 'twin.macro'
 
 import { lazyLoad } from '@/utils/loadable'
+
+const StyledWrapper = styled.div`
+  ${tw`flex items-center justify-center w-full h-screen`}
+`
 
 export const HomePage: React.FC = lazyLoad(
   () => import('./index'),
   module => module.HomePage,
   {
     fallback: (
-      <div tw="w-full h-screen flex items-center justify-center">
+      <StyledWrapper>
         <div>Loading ...</div>
-      </div>
+      </StyledWrapper>
     )
   }
 )
