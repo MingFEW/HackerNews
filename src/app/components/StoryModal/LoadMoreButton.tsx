@@ -12,8 +12,9 @@ export const LoadMoreButton: React.FC<LoadMoreButtonProps> = props => {
       <button
         type="button"
         css={[
-          tw`px-6 py-1 w-fit bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-xl`,
-          tw`text-sm font-semibold text-white`
+          tw`px-6 pt-[6px] pb-[8px] [line-height: 1] w-fit bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-xl`,
+          tw`text-sm font-semibold text-white`,
+          tw`hover:opacity-80 transition-all`
         ]}
         onClick={onClick}
       >

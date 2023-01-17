@@ -44,7 +44,11 @@ export const Comment: React.FC<CommentProps> = props => {
             {deleted ? 'Deleted' : `${by}`}
             <span tw="text-xs font-normal text-textGrey">{` • ${formatTime(time)}`}</span>
           </div>
-          <div tw="text-textSecondary text-sm break-all">{deleted ? 'Reply deleted' : text}</div>
+          <div
+            tw="text-textSecondary text-sm break-all"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: deleted ? 'Reply deleted' : text }}
+          />
         </div>
       </div>
 
