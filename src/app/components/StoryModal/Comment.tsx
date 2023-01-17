@@ -81,7 +81,7 @@ export const Comment: React.FC<CommentProps> = props => {
                   tw`text-xs font-semibold text-card`
                 ]}
                 onClick={() => {
-                  if (onLoadMoreReplies) onLoadMoreReplies(kids, data)
+                  if (onLoadMoreReplies && typeof onLoadMoreReplies === 'function') onLoadMoreReplies(kids, data)
                 }}
               >
                 {fetchingCommentId === id
