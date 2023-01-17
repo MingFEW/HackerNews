@@ -4,7 +4,8 @@ import { useInjectReducer } from '@/utils/redux-injectors'
 import { CommentTypes, CommentsState } from './types'
 
 export const initialState: CommentsState = {
-  comments: []
+  comments: [],
+  fetchingCommentId: null
 }
 
 const slice = createSlice({
@@ -13,6 +14,9 @@ const slice = createSlice({
   reducers: {
     setComments(state: CommentsState, action: PayloadAction<CommentTypes[]>) {
       state.comments = action.payload
+    },
+    setFetchingCommentId(state: CommentsState, action: PayloadAction<number | null>) {
+      state.fetchingCommentId = action.payload
     }
   }
 })

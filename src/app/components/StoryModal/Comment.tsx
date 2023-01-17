@@ -3,6 +3,8 @@ import tw, { css } from 'twin.macro'
 import { useTranslation } from 'react-i18next'
 
 import { CommentTypes } from '@/state/comments/types'
+import { useSelectFetchingCommentId } from '@/state/comments/hooks'
+
 import { formatTime } from '@/utils/formatTime'
 
 import { messages } from './messages'
@@ -26,9 +28,10 @@ const depthStyles = css`
 
 export const Comment: React.FC<CommentProps> = props => {
   const { t } = useTranslation()
+  const fetchingCommentId = useSelectFetchingCommentId()
 
   const { data, onLoadMoreReplies } = props
-  const { by, path, text, deleted, time, kids, childLoaded, children } = data
+  const { id, by, path, text, deleted, time, kids, childLoaded, children } = data
   const totalMoreReplies = kids?.length - childLoaded
   const depth = path ? path.split('/').length : 0
 
@@ -37,14 +40,14 @@ export const Comment: React.FC<CommentProps> = props => {
       css={[
         tw`flex flex-col gap-3.5 relative`,
         depth > 0 && depthStyles,
-        totalMoreReplies && tw`pb-5`,
+        totalMoreReplies && tw`pb-10`,
         depth === 0 && tw`pb-10`
       ]}
     >
       {/* Comment info */}
       <div tw="flex items-start gap-3">
         <div tw="w-8 h-8 rounded-full bg-slate-700 z-10" />
-        <div tw="flex-1">
+        <div tw="flex-1 overflow-hidden">
           <div tw="text-white font-semibold text-sm mb-1">
             {deleted ? 'Deleted' : `${by}`}
             <span tw="text-xs font-normal text-textGrey">{` • ${formatTime(time)}`}</span>
@@ -81,7 +84,9 @@ export const Comment: React.FC<CommentProps> = props => {
                   if (onLoadMoreReplies) onLoadMoreReplies(kids, data)
                 }}
               >
-                {t(messages.totalMoreReplies(), { total: totalMoreReplies })}
+                {fetchingCommentId === id
+                  ? t(messages.loading())
+                  : t(messages.totalMoreReplies(), { total: totalMoreReplies })}
               </div>
             </div>
           ) : null}

@@ -3,5 +3,6 @@
   "totalMoreReplies": "{{total}} more replies",
   "story": "Story",
   "loadMore": "Load more",
-  "postedBy": "Posted by {{author}} • {{time}}"
+  "postedBy": "Posted by {{author}} • {{time}}",
+  "loading": "Loading..."
 }

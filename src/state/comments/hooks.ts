@@ -11,12 +11,16 @@ export const useSelectComments = (): CommentTypes[] => {
   return useAppSelector(state => state.comments.comments)
 }
 
+export const useSelectFetchingCommentId = (): number | null => {
+  return useAppSelector(state => state.comments.fetchingCommentId)
+}
+
 export const useResetComments = (): {
   resetComments: () => void
 } => {
   const dispatch = useAppDispatch()
 
-  const resetComments = useCallback(() => {
+  const resetComments = useCallback((): void => {
     dispatch(commentsActions.setComments([]))
   }, [])
 
@@ -52,7 +56,7 @@ export const useFetchComments = (): {
   const [fetchCommentsError, setFetchCommentsError] = useState<unknown>(null)
 
   /**
-   * hooks handle the check, calculate...
+   * calculate can load more
    */
   const hasMore = useMemo(
     (): boolean => page * PAGE_SIZE < (storySelected?.kids?.length as number),
@@ -74,13 +78,15 @@ export const useFetchComments = (): {
   const handleFetchComments = useCallback(
     async (commentIds: number[], parentComment?: CommentTypes): Promise<void> => {
       try {
-        const cloneComments: CommentTypes[] = [...comments]
+        // Used for displaying loading when viewing more replies
+        if (parentComment) dispatch(commentsActions.setFetchingCommentId(parentComment.id))
 
         // Handle how many comments can be loaded at a time
         const skip = parentComment ? parentComment.childLoaded : page * PAGE_SIZE
         const limit = skip + PAGE_SIZE
 
         const preparePromises = commentIds.slice(skip, limit).map((id: number) => fetchComment(id))
+
         const data = await Promise.all(preparePromises)
 
         const transformData = data.map(item => ({
@@ -89,6 +95,7 @@ export const useFetchComments = (): {
           childLoaded: 0
         }))
 
+        const cloneComments: CommentTypes[] = [...comments]
         const findParentIndex = cloneComments.findIndex(c => c.id === parentComment?.id)
 
         if (findParentIndex > -1) {
@@ -100,6 +107,7 @@ export const useFetchComments = (): {
         }
 
         dispatch(commentsActions.setComments([...cloneComments, ...(transformData as CommentTypes[])]))
+        if (parentComment) dispatch(commentsActions.setFetchingCommentId(null))
         if (!parentComment) setPage(page + 1)
       } catch (error) {
         setFetchCommentsError(error)

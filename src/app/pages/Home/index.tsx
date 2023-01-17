@@ -30,7 +30,7 @@ export const HomePage: React.FC = () => {
   const onCloseStoryModal = useCallback((): void => {
     setStorySelected(null)
     resetComments()
-  }, [storySelected])
+  }, [storySelected, resetComments])
 
   /**
    * rendering loading for story card

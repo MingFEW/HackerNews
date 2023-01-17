@@ -1,5 +1,6 @@
 export interface CommentsState {
   comments: CommentTypes[]
+  fetchingCommentId: number | null
 }
 
 export type CommentTypes = {
