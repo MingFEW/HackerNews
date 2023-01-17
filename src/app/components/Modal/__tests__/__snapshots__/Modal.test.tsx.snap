@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Modal /> should render and match the snapshot 1`] = `
+<Modal
+  ariaHideApp={true}
+  bodyOpenClassName="ReactModal__Body--open"
+  closeTimeoutMS={0}
+  contentElement={[Function]}
+  isOpen={true}
+  overlayElement={[Function]}
+  parentSelector={[Function]}
+  portalClassName="ReactModalPortal"
+  preventScroll={false}
+  role="dialog"
+  shouldCloseOnEsc={true}
+  shouldCloseOnOverlayClick={true}
+  shouldFocusAfterRender={true}
+  shouldReturnFocusAfterClose={true}
+  style={
+    {
+      "content": {
+        "background": "transparent",
+        "border": "none",
+        "borderRadius": 16,
+        "bottom": "auto",
+        "left": "50%",
+        "marginRight": "-50%",
+        "maxWidth": "768px",
+        "outline": "none",
+        "padding": "0px",
+        "right": "auto",
+        "top": "50%",
+        "transform": "translate(-50%, -50%)",
+        "width": "100%",
+        "zIndex": 1000,
+      },
+      "overlay": {
+        "backdropFilter": "blur(22px)",
+        "backgroundColor": "rgba(var(--color-card), 0.6)",
+        "zIndex": 999,
+      },
+    }
+  }
+  tw="relative"
+>
+  <Content>
+    content
+  </Content>
+</Modal>
+`;

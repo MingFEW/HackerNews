@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tag /> should render and match the snapshot 1`] = `
+<div
+  tw="flex items-center justify-center h-8 px-3 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+>
+  <div
+    tw="text-xs sm:text-sm text-white font-bold mb-[2px]"
+  >
+    Story
+  </div>
+</div>
+`;

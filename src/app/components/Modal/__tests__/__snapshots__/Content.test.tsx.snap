@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Content /> should render and match the snapshot 1`] = `
+<div
+  tw="p-4 overflow-auto bg-card [height: calc(100vh - 59px - 48px)]"
+>
+  content
+</div>
+`;

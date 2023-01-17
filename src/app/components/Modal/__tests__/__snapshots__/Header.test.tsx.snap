@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render and match the snapshot 1`] = `
+<div
+  tw="flex items-center gap-4 p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+>
+  <button
+    onClick={[Function]}
+    tw="cursor-pointer"
+    type="button"
+  >
+    <BsArrowLeft
+      tw="text-white text-2xl"
+    />
+  </button>
+  <div
+    tw="text-lg font-bold text-white"
+  >
+    story
+  </div>
+</div>
+`;

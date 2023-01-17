@@ -14,18 +14,6 @@ interface CommentProps {
   onLoadMoreReplies?: (replyIds: number[], parentComment: CommentTypes) => Promise<void>
 }
 
-/**
- * Styles
- */
-const depthStyles = css`
-  margin-left: 40px;
-  margin-bottom: 16px;
-
-  &:last-child {
-    margin-bottom: 0px;
-  }
-`
-
 export const Comment: React.FC<CommentProps> = props => {
   const { t } = useTranslation()
   const fetchingCommentId = useSelectFetchingCommentId()
@@ -39,7 +27,14 @@ export const Comment: React.FC<CommentProps> = props => {
     <div
       css={[
         tw`flex flex-col gap-3.5 relative`,
-        depth > 0 && depthStyles,
+        depth > 0 &&
+          css`
+            margin-left: 40px;
+            margin-bottom: 16px;
+            &:last-child {
+              margin-bottom: 0px;
+            }
+          `,
         totalMoreReplies && tw`pb-10`,
         depth === 0 && tw`pb-10`
       ]}

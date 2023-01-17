@@ -1,5 +1,5 @@
 import React from 'react'
-import tw from 'twin.macro'
+import 'twin.macro'
 
 interface StoryTitleProps {
   url: string
@@ -13,7 +13,7 @@ export const StoryTitle: React.FC<StoryTitleProps> = props => {
       href={url}
       target="_blank"
       rel="noreferrer"
-      css={[tw`text-base font-bold text-white sm:text-xl`, tw`hover:opacity-80 hover:no-underline`]}
+      tw="text-base font-bold text-white sm:text-xl hover:opacity-80 hover:no-underline"
     >
       {title}
     </a>

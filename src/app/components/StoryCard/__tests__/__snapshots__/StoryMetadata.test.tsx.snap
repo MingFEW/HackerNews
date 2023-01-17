@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StoryMetadata /> should render and match the snapshot 1`] = `
+<div
+  tw="flex items-center justify-between"
+>
+  <div
+    tw="text-xs text-textGrey"
+  >
+    _NOT_TRANSLATED_
+  </div>
+  <div
+    tw="flex items-center"
+  >
+    <BsFillStarFill
+      color="gold"
+      tw="mr-[6px]"
+    />
+    <div
+      tw="text-xs sm:text-sm text-white font-semibold mt-[2px]"
+    >
+      10
+    </div>
+  </div>
+</div>
+`;

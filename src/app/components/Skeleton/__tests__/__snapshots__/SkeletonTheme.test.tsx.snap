@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SkeletonTheme /> should match snapshot when props changed 1`] = `
+<SkeletonTheme
+  baseColor="#fff"
+  highlightColor="#333"
+>
+  <Skeleton
+    count={3}
+  />
+</SkeletonTheme>
+`;
+
+exports[`<SkeletonTheme /> should render and match the snapshot 1`] = `
+<SkeletonTheme
+  baseColor="var(--color-skeleton-base)"
+  highlightColor="var(--color-skeleton-highlight)"
+>
+  <Skeleton
+    count={3}
+  />
+</SkeletonTheme>
+`;
