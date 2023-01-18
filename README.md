@@ -14,17 +14,17 @@
 
 #### Install 
 ```
-yarn install
+$ yarn install
 ```
 
 #### Run dev 
 ```
-yarn dev
+$ yarn dev
 ```
 
 #### Run Test
 ```
-yarn test
+$ yarn test
 ```
 
 
