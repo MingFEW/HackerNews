@@ -6,7 +6,7 @@
 
 - Scroll down to view more stories
 
-![Main view!]([/assets/images/san-juan-mountains.jpg](https://hacker-top-stories-432.netlify.app/images/doc/m1.png) "Main View")
+![Main view!]([https://hacker-top-stories-432.netlify.app/images/doc/m1.png](https://hacker-top-stories-432.netlify.app/images/doc/m1.png) "Main View")
 
 **II. Click Comment to view Nested Comments**
 
