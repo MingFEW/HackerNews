@@ -11,6 +11,8 @@
 **II. Click Comment to view Nested Comments**
 
 - Click view more to see children comments
+[![Main view](https://hacker-top-stories-432.netlify.app/images/doc/m2.png "Main view")](https://hacker-top-stories-432.netlify.app/images/doc/m2.png)
+[![Main view](https://hacker-top-stories-432.netlify.app/images/doc/m3.png "Main view")](https://hacker-top-stories-432.netlify.app/images/doc/m3.png)
 
 
 #### Install 
