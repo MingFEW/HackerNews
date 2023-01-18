@@ -1,6 +1,6 @@
 # Hacker Top Stories and Comments 
 
-**LIVE DEMO****: https://melodic-sable-85ff60.netlify.app/
+**LIVE DEMO**: https://hacker-top-stories-432.netlify.app/
 
 **I. Top Stories View**
 
