@@ -2,6 +2,35 @@
 
 **LIVE DEMO****: https://melodic-sable-85ff60.netlify.app/
 
+**I. Top Stories View**
+
+- Scroll down to view more stories
+
+
+**II. Click Comment to view Nested Comments**
+
+- Click view more to see children comments
+
+
+#### Install 
+```
+yarn install
+```
+
+#### Run dev 
+```
+yarn dev
+```
+
+#### Run Test
+```
+yarn test
+```
+
+
+
+
+
 ### Requirements for UI
 
 1. Display a list of hacker news top stories(100news).
