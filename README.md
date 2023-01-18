@@ -1,6 +1,39 @@
 # Hacker Top Stories and Comments 
 
-**LIVE DEMO****: https://melodic-sable-85ff60.netlify.app/
+**LIVE DEMO**: https://hacker-top-stories-432.netlify.app/
+
+**I. Top Stories View**
+
+- Scroll down to view more stories
+
+[![Main view](https://hacker-top-stories-432.netlify.app/images/doc/m1.png "Main view")](https://hacker-top-stories-432.netlify.app/images/doc/m1.png)
+
+**II. Click Comment to view Nested Comments**
+
+- Click view more to see children comments
+
+[![Main view](https://hacker-top-stories-432.netlify.app/images/doc/m2.png "Main view")](https://hacker-top-stories-432.netlify.app/images/doc/m2.png)
+[![Main view](https://hacker-top-stories-432.netlify.app/images/doc/m3.png "Main view")](https://hacker-top-stories-432.netlify.app/images/doc/m3.png)
+
+
+#### Install 
+```
+$ yarn install
+```
+
+#### Run dev 
+```
+$ yarn dev
+```
+
+#### Run Test
+```
+$ yarn test
+```
+
+
+
+
 
 ### Requirements for UI
 
